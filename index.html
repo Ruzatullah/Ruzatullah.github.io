@@ -3,89 +3,1549 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruzat Ullah</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Ruzat Ullah | PhD Candidate | Federated Learning & AI Security</title>
+    <meta name="description" content="Ruzat Ullah - Computer Systems Engineer specializing in Federated Learning, LLMs, and IoT Security. MS from UET Peshawar.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #1e3a5f;
+            --primary-light: #2c5282;
+            --accent: #c9a227;
+            --accent-hover: #b8941f;
+            --text: #2d3748;
+            --text-light: #718096;
+            --bg: #ffffff;
+            --bg-alt: #f7fafc;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: var(--shadow-lg);
+            display: block;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-contact {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-contact a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+
+        .hero-contact a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .hero-buttons {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+        }
+
+        /* Sections General */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin-top: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box {
+            background: var(--bg-alt);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+
+        /* Research Interests */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .interest-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interest-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .interest-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .interest-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .interest-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .interest-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Publications */
+        .pub-filters {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            background: white;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .publications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .pub-item {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pub-item:hover {
+            box-shadow: var(--shadow);
+            border-color: var(--primary-light);
+        }
+
+        .pub-year {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            background: var(--bg-alt);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .pub-type {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pub-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+            padding-right: 4rem;
+        }
+
+        .pub-venue {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .pub-venue i {
+            color: var(--accent);
+            margin-right: 0.3rem;
+        }
+
+        .pub-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .pub-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .pub-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .pub-links a {
+            font-size: 0.85rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .pub-links a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        /* Education Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--accent);
+            transform: translateX(-5px);
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-degree {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-school {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-details {
+            font-size: 0.85rem;
+            color: var(--text);
+            margin-top: 0.5rem;
+        }
+
+        .thesis-badge {
+            display: inline-block;
+            background: var(--bg-alt);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            border-left: 3px solid var(--primary);
+        }
+
+        /* Experience */
+        .exp-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .exp-item {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .exp-item:hover {
+            transform: translateX(5px);
+            border-left: 4px solid var(--accent);
+        }
+
+        .exp-date {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .exp-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .exp-org {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-desc {
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .exp-desc ul {
+            margin-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .exp-desc li {
+            margin-bottom: 0.25rem;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 0.4rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--text);
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .skill-tag.highlight {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            display: flex;
+            gap: 1rem;
+            align-items: start;
+            transition: all 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cert-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .cert-content h4 {
+            font-size: 0.95rem;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .cert-content p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .cert-date {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* Contact */
+        .contact-section {
+            background: var(--bg-alt);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-alt);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover .contact-icon {
+            background: var(--primary);
+            color: white;
+        }
+
+        .contact-card h3 {
+            font-size: 1rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .exp-item {
+                grid-template-columns: 1fr;
+            }
+
+            .pub-title {
+                padding-right: 0;
+            }
+
+            .pub-year {
+                position: static;
+                display: inline-block;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+    </style>
 </head>
 <body>
 
-<header>
-    <h1>Ruzat Ullah</h1>
-    <p>AI Researcher | Federated Learning | IoT Security | Teacher</p>
-</header>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">RU</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
-<section>
-    <h2>About</h2>
-    <p>
-        I am a Computer Systems Engineer with expertise in Machine Learning, Federated Learning, 
-        and IoT Security. Currently working as a Secondary School Teacher while actively conducting 
-        research in LLM-based security for federated systems.
-    </p>
-</section>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-container">
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/280x280/2c5282/ffffff?text=RU" alt="Ruzat Ullah">
+            </div>
+            <div class="hero-content">
+                <h1>Ruzat Ullah</h1>
+                <p class="hero-subtitle">MS Computer Systems Engineering | AI Security Researcher</p>
+                <div class="hero-badges">
+                    <span class="badge"><i class="fas fa-graduation-cap"></i> PhD Candidate</span>
+                    <span class="badge"><i class="fas fa-shield-alt"></i> Federated Learning</span>
+                    <span class="badge"><i class="fas fa-brain"></i> LLMs & GenAI</span>
+                    <span class="badge"><i class="fas fa-network-wired"></i> IoT Security</span>
+                </div>
+                <p style="opacity: 0.9; max-width: 600px; line-height: 1.7;">
+                    Computer Systems Engineer specializing in secure federated learning systems, 
+                    large language models for cybersecurity, and next-generation wireless networks. 
+                    Seeking PhD opportunities to advance research in distributed AI security.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#publications" class="btn btn-primary">
+                        <i class="fas fa-file-alt"></i> View Publications
+                    </a>
+                    <a href="mailto:ruzzatullah@gmail.com" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </a>
+                </div>
+                <div class="hero-contact" style="margin-top: 2rem;">
+                    <a href="mailto:ruzzatullah@gmail.com"><i class="fas fa-envelope"></i> ruzzatullah@gmail.com</a>
+                    <a href="https://orcid.org/0000-0002-3400-1357" target="_blank"><i class="fab fa-orcid"></i> ORCID</a>
+                    <a href="https://www.linkedin.com/in/ruzat-ullah-b76808121" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://www.researchgate.net/profile/Ruzat-Ullah" target="_blank"><i class="fab fa-researchgate"></i> ResearchGate</a>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<section>
-    <h2>Research Interests</h2>
-    <ul>
-        <li>Federated Learning</li>
-        <li>Large Language Models (LLMs)</li>
-        <li>IoT Security</li>
-        <li>Cyber Security</li>
-        <li>Wireless Networks & 5G</li>
-    </ul>
-</section>
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">Researcher. Educator. Lifelong Learner.</p>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>
+                    I am a dedicated researcher in Computer Systems Engineering with a strong foundation in machine learning, 
+                    deep learning, and distributed systems security. My work focuses on developing robust federated learning 
+                    frameworks resilient to adversarial attacks, leveraging large language models for intelligent threat detection 
+                    in IoT ecosystems.
+                </p>
+                <p>
+                    Currently serving as a Secondary School Teacher for IT (E&SED) while actively pursuing advanced research 
+                    collaborations. I have published in reputable venues including <em>Elsevier Array</em> and <em>MDPI Electronics</em>, 
+                    with additional works under review at IEEE Transactions.
+                </p>
+                <div class="highlight-box">
+                    <strong>Research Mission:</strong> To develop secure, scalable, and explainable AI systems for 
+                    next-generation networks that preserve privacy while maintaining robustness against emerging cyber threats.
+                </div>
+                <p>
+                    I am proficient in Python, TensorFlow, and federated learning frameworks, with hands-on experience in 
+                    network security, cloud computing (AWS), and academic research methodologies. I am fluent in English (C2), 
+                    Urdu, and Pashto.
+                </p>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Publications</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2</span>
+                    <span class="stat-label">IEEE Reviews</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Years Research</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">C2</span>
+                    <span class="stat-label">English Proficiency</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section>
-    <h2>Publications</h2>
-    <ul>
-        <li><strong>2025:</strong> Dual-Aggregation Approach for Poisoning Defense in IoTs (Elsevier Array)</li>
-        <li><strong>2020:</strong> ML Approach for 5G SINR Prediction (MDPI Electronics)</li>
-        <li><strong>2026:</strong> Blockchain-based IDS for V2X (WTC)</li>
-        <li><strong>2026:</strong> LLM-based Poisoning Detection in FL (SSRN Preprint)</li>
-        <li><strong>2026:</strong> DL Framework for Filtering Cartoon Content (Research Square)</li>
-    </ul>
-</section>
+    <!-- Research Interests -->
+    <section id="research" style="background: var(--bg-alt);">
+        <h2 class="section-title">Research Interests</h2>
+        <p class="section-subtitle">Areas of expertise and active investigation</p>
+        <div class="interests-grid">
+            <div class="interest-card">
+                <div class="interest-icon"><i class="fas fa-project-diagram"></i></div>
+                <h3>Federated Learning</h3>
+                <p>Secure aggregation, Byzantine-robust optimization, and privacy-preserving distributed learning for resource-constrained devices.</p>
+            </div>
+            <div class="interest-card">
+                <div class="interest-icon"><i class="fas fa-robot"></i></div>
+                <h3>Large Language Models</h3>
+                <p>Fine-tuning LLMs for cybersecurity applications, automated threat detection, and hyperparameter optimization in FL.</p>
+            </div>
+            <div class="interest-card">
+                <div class="interest-icon"><i class="fas fa-shield-virus"></i></div>
+                <h3>IoT & Cyber Security</h3>
+                <p>Intrusion detection systems, model poisoning defense, blockchain-enhanced security for V2X and IoVT networks.</p>
+            </div>
+            <div class="interest-card">
+                <div class="interest-icon"><i class="fas fa-broadcast-tower"></i></div>
+                <h3>Next-Gen Networks</h3>
+                <p>5G/6G network optimization, SINR prediction, wireless sensor networks, and mobile network security.</p>
+            </div>
+            <div class="interest-card">
+                <div class="interest-icon"><i class="fas fa-link"></i></div>
+                <h3>Blockchain & XAI</h3>
+                <p>Explainable AI frameworks integrated with blockchain for transparent and trustworthy security systems.</p>
+            </div>
+            <div class="interest-card">
+                <div class="interest-icon"><i class="fas fa-video"></i></div>
+                <h3>Deep Learning Applications</h3>
+                <p>Content filtering, computer vision, and signal processing using advanced neural network architectures.</p>
+            </div>
+        </div>
+    </section>
 
-<section>
-    <h2>Projects</h2>
-    <ul>
-        <li>LLM-based Poisoning Detection in Federated Learning (Ongoing)</li>
-        <li>Hyperparameter Optimization in FL using LLMs</li>
-        <li>Twitter Sentiment Analysis using AWS Comprehend</li>
-        <li>5G SINR Prediction using Machine Learning</li>
-    </ul>
-</section>
+    <!-- Publications -->
+    <section id="publications">
+        <h2 class="section-title">Publications</h2>
+        <p class="section-subtitle">Peer-reviewed journals and conference proceedings</p>
+        
+        <div class="pub-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="journal">Journals</button>
+            <button class="filter-btn" data-filter="conference">Conferences</button>
+            <button class="filter-btn" data-filter="preprint">Preprints</button>
+        </div>
 
-<section>
-    <h2>Experience</h2>
-    <ul>
-        <li><strong>Secondary School Teacher (2021–Present)</strong></li>
-        <li><strong>Freelancer (Upwork)</strong> – ML, Research Writing</li>
-        <li><strong>Intern – OGDCL</strong> – Network Management</li>
-    </ul>
-</section>
+        <div class="publications-list">
+            <!-- Journal 2025 -->
+            <div class="pub-item" data-category="journal">
+                <span class="pub-year">2025</span>
+                <span class="pub-type">Journal Article</span>
+                <h3 class="pub-title">A Dual-Aggregation Approach to Fortify Federated Learning Against Poisoning Attacks in IoTs</h3>
+                <p class="pub-venue"><i class="fas fa-book"></i> Array, Vol. 28, December 2025, 100520</p>
+                <div class="pub-meta">
+                    <span><i class="fas fa-building"></i> Elsevier</span>
+                    <span><i class="fas fa-tags"></i> Federated Learning, IoT Security, Poisoning Attacks</span>
+                </div>
+                <div class="pub-links">
+                    <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> DOI</a>
+                    <a href="#" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                </div>
+            </div>
 
-<section>
-    <h2>Skills</h2>
-    <p>
-        Python, TensorFlow, Pandas, NumPy, SQL, MATLAB, C++, Federated Learning, LLMs
-    </p>
-</section>
+            <!-- Journal 2020 -->
+            <div class="pub-item" data-category="journal">
+                <span class="pub-year">2020</span>
+                <span class="pub-type">Journal Article</span>
+                <h3 class="pub-title">A Machine Learning Approach for 5G SINR Prediction</h3>
+                <p class="pub-venue"><i class="fas fa-book"></i> Electronics, Vol. 9, Issue 10, 1660</p>
+                <div class="pub-meta">
+                    <span><i class="fas fa-building"></i> MDPI</span>
+                    <span><i class="fas fa-tags"></i> 5G Networks, Machine Learning, Wireless Communications</span>
+                </div>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.3390/electronics9101660" target="_blank"><i class="fas fa-external-link-alt"></i> DOI</a>
+                    <a href="#" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                </div>
+            </div>
 
-<section>
-    <h2>Education</h2>
-    <p><strong>MS Computer Systems Engineering</strong> – UET Peshawar (3.51 CGPA)</p>
-    <p><strong>BS Computer Engineering</strong> – BUITEMS</p>
-</section>
+            <!-- Conference 2026 -->
+            <div class="pub-item" data-category="conference">
+                <span class="pub-year">2026</span>
+                <span class="pub-type">Conference Paper</span>
+                <h3 class="pub-title">Intrusion Detection System in V2X Networks: A Blockchain-Enhanced Federated XAI Framework for Secure and Reliable Detection</h3>
+                <p class="pub-venue"><i class="fas fa-users"></i> World Transport Convention (WTC 2026)</p>
+                <div class="pub-meta">
+                    <span><i class="fas fa-tags"></i> V2X, Blockchain, Federated Learning, XAI</span>
+                </div>
+                <div class="pub-links">
+                    <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Conference Site</a>
+                </div>
+            </div>
 
-<section>
-    <h2>Contact</h2>
-    <p>Email: ruzzatullah@gmail.com</p>
-    <p>LinkedIn: www.linkedin.com/in/ruzat-ullah-b76808121</p>
-    <p>ResearchGate: researchgate.net/profile/Ruzat-Ullah</p>
-</section>
+            <!-- Preprint 2026 -->
+            <div class="pub-item" data-category="preprint">
+                <span class="pub-year">2026</span>
+                <span class="pub-type">Preprint</span>
+                <h3 class="pub-title">Fine-Tuning LLMs for Detecting and Mitigating Poisoning Attacks on Federated Learning for IoT Security</h3>
+                <p class="pub-venue"><i class="fas fa-file-alt"></i> SSRN Electronic Journal</p>
+                <div class="pub-meta">
+                    <span><i class="fas fa-clock"></i> Under Review at IEEE Transactions on Consumer Electronics</span>
+                    <span><i class="fas fa-tags"></i> LLMs, Federated Learning, IoT Security</span>
+                </div>
+                <div class="pub-links">
+                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=..." target="_blank"><i class="fas fa-external-link-alt"></i> SSRN</a>
+                </div>
+            </div>
 
-<footer>
-    <p>© 2026 Ruzat Ullah</p>
-</footer>
+            <!-- Preprint 2026 -->
+            <div class="pub-item" data-category="preprint">
+                <span class="pub-year">2026</span>
+                <span class="pub-type">Preprint</span>
+                <h3 class="pub-title">Deep Learning-Based Framework for Filtering Objectionable Scenes in Cartoon Videos</h3>
+                <p class="pub-venue"><i class="fas fa-file-alt"></i> Research Square</p>
+                <div class="pub-meta">
+                    <span><i class="fas fa-tags"></i> Deep Learning, Computer Vision, Content Moderation</span>
+                </div>
+                <div class="pub-links">
+                    <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Preprint</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Education -->
+    <section id="education" style="background: var(--bg-alt);">
+        <h2 class="section-title">Education</h2>
+        <p class="section-subtitle">Academic background and qualifications</p>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">October 2017 – August 2020</div>
+                    <div class="timeline-degree">MS Computer Systems Engineering</div>
+                    <div class="timeline-school">University of Engineering and Technology (UET), Peshawar, Pakistan</div>
+                    <div class="timeline-details">
+                        <strong>CGPA:</strong> 3.51/4.0<br>
+                        <strong>Specialization:</strong> Machine Learning, Mobile Networks, Network Security, Wireless Sensor Networks
+                    </div>
+                    <div class="thesis-badge">
+                        <strong>Thesis:</strong> A Machine Learning Approach for SINR Prediction in 5G Networks
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">September 2011 – December 2015</div>
+                    <div class="timeline-degree">BS Computer Engineering</div>
+                    <div class="timeline-school">Balochistan University of Information Technology, Engineering and Management Sciences (BUITEMS), Quetta, Pakistan</div>
+                    <div class="timeline-details">
+                        Comprehensive training in computer systems, software engineering, and hardware design.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-subtitle">Professional and research experience</p>
+        
+        <div class="exp-grid">
+            <div class="exp-item">
+                <div class="exp-date">May 2021 – Present</div>
+                <div>
+                    <div class="exp-title">Secondary School Teacher (IT)</div>
+                    <div class="exp-org">Elementary & Secondary Education Department (E&SED), Karak, Pakistan</div>
+                    <div class="exp-desc">
+                        <ul>
+                            <li>Teaching Computer Science to 9th and 10th grade students</li>
+                            <li>Developing curriculum for programming fundamentals and IT literacy</li>
+                            <li>Mentoring students in computational thinking and problem-solving</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-date">February 2022 – Present</div>
+                <div>
+                    <div class="exp-title">Freelance Researcher & Technical Writer</div>
+                    <div class="exp-org">Upwork (Remote)</div>
+                    <div class="exp-desc">
+                        <ul>
+                            <li>Machine Learning model development and experimental design</li>
+                            <li>Academic research writing, proofreading, and literature reviews</li>
+                            <li>Technical documentation and research proposal preparation</li>
+                            <li>Collaborated with international clients on AI/ML projects</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-date">October 2017 – October 2018</div>
+                <div>
+                    <div class="exp-title">Network Engineering Intern</div>
+                    <div class="exp-org">Oil and Gas Development Company Limited (OGDCL), Pakistan</div>
+                    <div class="exp-desc">
+                        <ul>
+                            <li>Managed wired and wireless network infrastructure</li>
+                            <li>Administered camera networks and connectivity systems</li>
+                            <li>Maintained proxy servers and computer hardware</li>
+                            <li>Gained hands-on experience in enterprise network security</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-date">April 2016 – March 2017</div>
+                <div>
+                    <div class="exp-title">IT Intern</div>
+                    <div class="exp-org">Prime Minister's Youth Training Scheme (PMYTS), Peshawar</div>
+                    <div class="exp-desc">
+                        <ul>
+                            <li>Comprehensive IT support and system administration</li>
+                            <li>Hardware maintenance and network troubleshooting</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-date">April 2020 – May 2021</div>
+                <div>
+                    <div class="exp-title">Primary School Teacher</div>
+                    <div class="exp-org">Elementary & Secondary Education Department (E&SED), Karak, Pakistan</div>
+                    <div class="exp-desc">
+                        <ul>
+                            <li>Foundation-level instruction across multiple subjects</li>
+                            <li>Developed engaging educational content for young learners</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" style="background: var(--bg-alt);">
+        <h2 class="section-title">Research Projects</h2>
+        <p class="section-subtitle">Current and completed research initiatives</p>
+        
+        <div class="interests-grid">
+            <div class="interest-card">
+                <div class="interest-icon" style="color: var(--accent);"><i class="fas fa-brain"></i></div>
+                <h3>LLM-based Poisoning Detection in FL</h3>
+                <p>Currently under review at IEEE Transactions on Consumer Electronics. Fine-tuning LLMs to detect and mitigate model poisoning attacks in federated IoT systems.</p>
+                <span style="font-size: 0.8rem; color: var(--accent); font-weight: 600;">Status: Under Review</span>
+            </div>
+            
+            <div class="interest-card">
+                <div class="interest-icon" style="color: var(--accent);"><i class="fas fa-car"></i></div>
+                <h3>Mitigating Model Poisoning in IoVTs</h3>
+                <p>Research on securing Internet of Vehicles Things using advanced aggregation techniques. Currently under review at IEEE Transactions on Vehicular Technology.</p>
+                <span style="font-size: 0.8rem; color: var(--accent); font-weight: 600;">Status: Under Review</span>
+            </div>
+            
+            <div class="interest-card">
+                <div class="interest-icon" style="color: var(--accent);"><i class="fas fa-sliders-h"></i></div>
+                <h3>Hyperparameter Optimization in FL using LLMs</h3>
+                <p>Experimental framework using large language models to automate and optimize federated learning hyperparameters for improved convergence and security.</p>
+                <span style="font-size: 0.8rem; color: var(--primary); font-weight: 600;">Status: In Progress</span>
+            </div>
+            
+            <div class="interest-card">
+                <div class="interest-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>Dual-Aggregation Defense Framework</h3>
+                <p>Implemented and validated a dual-aggregation approach to fortify federated learning against poisoning attacks in IoT environments. Published in Elsevier Array.</p>
+                <span style="font-size: 0.8rem; color: #28a745; font-weight: 600;">Status: Published</span>
+            </div>
+            
+            <div class="interest-card">
+                <div class="interest-icon"><i class="fas fa-signal"></i></div>
+                <h3>5G SINR Prediction using ML</h3>
+                <p>MS thesis project developing machine learning models for Signal-to-Interference-plus-Noise Ratio prediction in 5G networks. Published in MDPI Electronics.</p>
+                <span style="font-size: 0.8rem; color: #28a745; font-weight: 600;">Status: Published</span>
+            </div>
+            
+            <div class="interest-card">
+                <div class="interest-icon"><i class="fas fa-cloud"></i></div>
+                <h3>Twitter Sentiment Analysis (AWS)</h3>
+                <p>Cloud computing project utilizing AWS Comprehend for real-time sentiment analysis of Twitter data during MS studies.</p>
+                <span style="font-size: 0.8rem; color: var(--primary); font-weight: 600;">Status: Completed</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-subtitle">Tools, technologies, and competencies</p>
+        
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Programming & Tools</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag highlight">Python</span>
+                    <span class="skill-tag highlight">TensorFlow</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag highlight">Pandas</span>
+                    <span class="skill-tag highlight">NumPy</span>
+                    <span class="skill-tag">Jupyter</span>
+                    <span class="skill-tag">MATLAB</span>
+                    <span class="skill-tag">Maple</span>
+                    <span class="skill-tag">C/C++</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Git</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-brain"></i> AI & Machine Learning</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag highlight">Federated Learning</span>
+                    <span class="skill-tag highlight">Deep Learning</span>
+                    <span class="skill-tag highlight">LLMs</span>
+                    <span class="skill-tag">GenAI</span>
+                    <span class="skill-tag">NLP</span>
+                    <span class="skill-tag">Computer Vision</span>
+                    <span class="skill-tag">XAI</span>
+                    <span class="skill-tag">Reinforcement Learning</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-network-wired"></i> Networking & Security</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag highlight">IoT Security</span>
+                    <span class="skill-tag">Network Security</span>
+                    <span class="skill-tag">Wireless Networks</span>
+                    <span class="skill-tag">5G/6G</span>
+                    <span class="skill-tag">Blockchain</span>
+                    <span class="skill-tag">Cloud Computing (AWS)</span>
+                    <span class="skill-tag">V2X Communications</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-pen-nib"></i> Research & Soft Skills</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Academic Writing</span>
+                    <span class="skill-tag">LaTeX</span>
+                    <span class="skill-tag">Literature Review</span>
+                    <span class="skill-tag">Proofreading</span>
+                    <span class="skill-tag">Data Visualization</span>
+                    <span class="skill-tag">Plotly</span>
+                    <span class="skill-tag">Matplotlib</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications" style="background: var(--bg-alt);">
+        <h2 class="section-title">Certifications</h2>
+        <p class="section-subtitle">Professional development and specialized training</p>
+        
+        <div class="cert-grid">
+            <div class="cert-card">
+                <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                <div class="cert-content">
+                    <h4>Advanced Machine Learning and Signal Processing</h4>
+                    <p>IBM through Coursera</p>
+                    <div class="cert-date">October 2019</div>
+                </div>
+            </div>
+            
+            <div class="cert-card">
+                <div class="cert-icon"><i class="fab fa-python"></i></div>
+                <div class="cert-content">
+                    <h4>Python Data Structures</h4>
+                    <p>University of Michigan through Coursera</p>
+                    <div class="cert-date">September 2020</div>
+                </div>
+            </div>
+            
+            <div class="cert-card">
+                <div class="cert-icon"><i class="fab fa-python"></i></div>
+                <div class="cert-content">
+                    <h4>Programming for Everybody (Getting Started with Python)</h4>
+                    <p>University of Michigan through Coursera</p>
+                    <div class="cert-date">July 2020</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Interested in collaboration or PhD supervision? Let's connect.</p>
+        
+        <div class="contact-grid">
+            <a href="mailto:ruzzatullah@gmail.com" class="contact-card">
+                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                <h3>Email</h3>
+                <p>ruzzatullah@gmail.com</p>
+            </a>
+            
+            <a href="https://www.linkedin.com/in/ruzat-ullah-b76808121" target="_blank" class="contact-card">
+                <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+                <h3>LinkedIn</h3>
+                <p>Connect professionally</p>
+            </a>
+            
+            <a href="https://orcid.org/0000-0002-3400-1357" target="_blank" class="contact-card">
+                <div class="contact-icon"><i class="fab fa-orcid"></i></div>
+                <h3>ORCID</h3>
+                <p>0000-0002-3400-1357</p>
+            </a>
+            
+            <a href="https://www.researchgate.net/profile/Ruzat-Ullah" target="_blank" class="contact-card">
+                <div class="contact-icon"><i class="fab fa-researchgate"></i></div>
+                <h3>ResearchGate</h3>
+                <p>Follow my research</p>
+            </a>
+            
+            <a href="https://wa.me/00923439451362" target="_blank" class="contact-card">
+                <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                <h3>WhatsApp</h3>
+                <p>+92 343 9451362</p>
+            </a>
+            
+            <div class="contact-card" style="cursor: default;">
+                <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <h3>Location</h3>
+                <p>Karak, Khyber Pakhtunkhwa, Pakistan</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p> 2026 Ruzat Ullah. All rights reserved. | Designed for PhD Applications</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">
+            <a href="https://orcid.org/0000-0002-3400-1357" style="color: var(--accent); text-decoration: none;">ORCID</a> • 
+            <a href="https://www.linkedin.com/in/ruzat-ullah-b76808121" style="color: var(--accent); text-decoration: none;">LinkedIn</a> • 
+            <a href="https://www.researchgate.net/profile/Ruzat-Ullah" style="color: var(--accent); text-decoration: none;">ResearchGate</a>
+        </p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Publication filters
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const pubItems = document.querySelectorAll('.pub-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                pubItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(10px)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.interest-card, .pub-item, .exp-item, .timeline-item, .cert-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
